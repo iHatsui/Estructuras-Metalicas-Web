@@ -1,0 +1,506 @@
+*{
+  margin: 0; /* separa la distancia que hay entre elementos*/
+  padding: 0; /* espacio entre el contenido interno y el borde de la caja que lo rodea*/
+  box-sizing: border-box; /*El tamaño total de la caja incluye el padding y el border*/
+  font-family:"Montserrat", sans-serif, Arial   /* Tipos de Letra*/
+}
+
+/*El cuerpo de la pagina*/
+body {
+  background: url("/Imagenes/Body/Fondo.jpeg") center center / cover no-repeat fixed;
+  box-sizing: border-box; /*El tamaño total de la caja incluye el padding y el border*/
+  line-height: 1.5; /*Altura que habra entre cada linea de texto*/
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.mainbody, header, footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*-----------------------------------------------HEADER-----------------------------------------*/
+
+/*_____________BARRA DE CONTACTO_________*/
+
+.contact-bar {
+  color: #ffffff;
+  width: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 5px 5px; /*Distancia entre los bordes de la caja y la pagina*/
+  box-sizing: border-box;
+}
+
+.contact-bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; /*El contenido inicia al inicio del contenedor*/
+  list-style: none; /*quita el estilo de las listas*/
+}
+
+.contact-bar ul>li {
+  background-color: rgba(0, 0, 0, 0.3); /*Color del fondo*/
+  font-size: 15px; /*tamaño de letra*/
+  padding: 10px 10px 10px 10px; /*distancia entre el contenido y la caja*/
+  margin: 5px 5px; /*La distancia entre cada descripcion de contacto*/
+  border-radius: 10px; /*borde de esquina*/
+}
+
+.contact-bar ul>li::before {
+  content: ""; /* Siempre necesario para pseudo-elementos */
+  display: inline-block; /* Para que podamos darle tamaño */
+  width: 17px; /* Ancho de tu icono */
+  height: 16px; /* Alto de tu icono */
+  margin: 0px 5px -2px 0;
+  background-size: contain; /* Ajusta el tamaño de la imagen para que quepa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.contact-bar ul>li:nth-child(1)::before {
+  background-image: url("/Imagenes/Iconos/llamada-icon.png"); /* Ruta a tu icono de llamada */
+}
+
+/* Icono para el correo (segundo <li>) */
+.contact-bar ul>li:nth-child(2)::before {
+  background-image: url('/Imagenes/Iconos/correo-icon.png'); /* Ruta a tu icono de correo */
+}
+
+/* Icono para el horario (tercer <li>) */
+.contact-bar ul>li:nth-child(3)::before {
+  background-image: url('/Imagenes/Iconos/reloj-icon.png'); /* Ruta a tu icono de reloj */
+}
+
+/*--------Linea de navegacion mas logo*----------*/
+
+.navegacion {
+  box-sizing: border-box;
+  display: flex;
+  justify-content:center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+/*_____LOGO______*/
+.navegacion__logo {
+  margin: 0 auto;
+}
+
+.navegacion__logo,
+.navegacion__busqueda,
+.navegacion__menu {
+    padding: 10px 20px;
+}
+
+.navegacion__logo img{
+  width: 120px;
+  height: 120px; /*  Esto es clave */
+  filter: drop-shadow(0 0 10px #34bade); /*Sombra solo para imagenes png*/
+  flex-shrink:0;
+}
+
+
+/*__________Navegacion Busqueda______*/
+
+.navegacion__busqueda {
+  margin-top: 20px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navegacion__busqueda--cuadro {
+  position: relative;
+  box-sizing: border-box;
+  padding:10px 10px;
+  max-width:1150px;        /* ancho relativo a la pantalla */
+  margin: 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  border-radius: 20px;
+}
+
+.navegacion__busqueda--cuadro form {
+  margin: auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  width: 100%;
+}
+
+#cuadrobusqueda {
+  color: #ffffff;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(142, 138, 134);/*tamaño borde - style - color*/
+  background-color: rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+}
+
+#cuadrobusqueda:focus-visible {
+  outline: none;
+}
+
+#cuadrobusqueda:hover {
+  background-color: #313335;
+}
+
+#botonbuscar {
+  color: #fffffa;
+  background-color: #313335;
+  padding: 15px;
+  margin: 5px 0px 10px 10px;
+  border-radius: 20px;
+  border: none;
+  flex-shrink: 0;
+}
+
+/*__________Navegacion Menu__________*/
+.navegacion__menu{
+  box-sizing: border-box;
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+nav { 
+  position: relative;
+  box-sizing: border-box; /*Tamaño total de la caja*/
+  padding: 0 0;
+  background:linear-gradient(rgb(1, 66, 116), rgb(70, 23, 0), rgba(51, 39, 0, 0.6));
+  font-size: 31px; /* Tamaño de letra */
+  display:flex; /*caja flexible*/
+  letter-spacing:1px; /* Espacio entre letras */
+  border-radius: 20px; /*El tamaño de la curva que tendra las esquinas de la caja*/
+  justify-content: end;
+  z-index: 10;
+}
+
+.menu__horizontal {   /*Lista Horizontal  como inicio - servicios, etc*/
+  list-style: none; /*elimina el estilo predeterminado de las listas*/
+  display: flex;
+  justify-content: space-evenly; /*division de espacio de contenido - equitativo*/
+  flex-direction: row; /*Direccion izquierda a derecha*/
+  flex-wrap: wrap;
+}
+
+.menu__horizontal>li>a {
+  text-decoration: none;
+  display: block;
+  padding: 15px 18px;
+  color: white;
+  text-shadow: 0 0 10px #001aff;
+  font-weight: 730;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.menu__horizontal>li:hover {
+  background:linear-gradient(rgba(1, 47, 116, 0.9),black , transparent); /*Fondo degradado*/
+  border-radius: 20px;
+  position: relative;
+  bottom:5px;
+  left: 2px;
+  box-shadow: -5px 2px 5px #512010;
+  outline: 1px solid #dc400734; /*es similar a border pero no usa espacio en la pagina*/
+}
+
+.menu__horizontal > li:hover .menu__vertical {
+  display: block;
+  max-height: 400px; /* o el valor que necesites */
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.menu__vertical {
+  position: absolute;
+  list-style: none;
+  width: auto;
+  max-height: 0;
+  background: linear-gradient(rgb(1, 46, 78), rgba(52, 2, 21, 0.264), rgb(63, 45, 4));
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  text-shadow: 0 0 10px #0f6c20;
+  transition: max-height 0.5s ease, opacity 0.4s ease, visibility 1s ease;
+}
+
+.menu__vertical li:hover {
+  background:linear-gradient(rgba(152, 65, 15, 0.314) , transparent); /*Fondo degradado*/ 
+  border-radius: 20px; /*borde de las esquinas*/
+  position: relative;
+  bottom: 5px;
+  box-shadow: 0px 5px 5px #512010;
+  outline: 1px solid #dc400734;
+}
+
+.menu__vertical li a {
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 15px 15px 15px;/*distancia pading en orden arriba-derecha-abajo-izquierda*/
+  display: block;
+  text-align: center;
+  color: #ffffff; /*Color en Hexadecimal*/
+}
+/*-----------------------------------------------FIN  HEADER-----------------------------------*/
+
+/*----------------------------------------------- MAIN -----------------------------------*/
+.mainbody {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    animation: aparecer 1s both;
+}
+
+.flexbody {
+    justify-content: center;
+    margin: 10px 15px;
+    max-width: 910px;
+    flex-grow: 1;
+}
+/*____________body izquierdo_____________*/
+.boddy__izquierdo {
+  border-radius: 20px;
+  background-color:  rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  width: 100%;
+  margin: 10px auto auto auto;
+}
+
+.boddy__izquierdo h2 {
+  color: #e2e1e1;
+  text-align: center;
+  font-size: 27px;
+  text-shadow: 0 0 10px #020112;
+}
+
+/*_________GALERIA GRID_______*/
+.boddy__izquierdo--galeria {
+  box-sizing: border-box;
+  height: auto;
+  gap: 15px 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: dense;
+  margin: auto;
+  padding: 10px;
+  animation: aparecer both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 30%;
+}
+
+.grid-item {
+  border-radius: 10px;
+  height: 250px;
+  max-width: 100%;
+}
+
+.grid-item:first-child {
+  background-image: url(/Imagenes/TrabajosRecientes/1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.grid-item:nth-child(2) {
+  background-image: url(/Imagenes/TrabajosRecientes/2.jpeg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(3) {
+  background-image: url(/Imagenes/TrabajosRecientes/3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(4) {
+  background-image: url(/Imagenes/TrabajosRecientes/4.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(5) {
+  background-image: url(/Imagenes/TrabajosRecientes/5.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(6) {
+  background-image: url(/Imagenes/TrabajosRecientes/6.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(7) {
+  background-image: url(/Imagenes/TrabajosRecientes/7.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:nth-child(8) {
+  background-image: url(/Imagenes/TrabajosRecientes/8.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-item:last-child {
+  background-image: url(/Imagenes/TrabajosRecientes/gaaa.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.grid-item:hover {
+  opacity: 0.5;
+}
+
+
+/*__________Body derecho_________*/
+h1, h2 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+.body__derecho{
+  width: 100%;
+  max-width: 915px;
+  margin: 0 15px;
+}
+
+.body__derecho1 {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #043d4c; /*sombra de la caja*/
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: aparecer both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 48%;
+}
+.body__derecho1--descripcion h1{
+  color: #e2e2e2;
+  text-align: center;
+  font-size: 27px;
+  padding: 10px;
+}
+
+.body__derecho1--descripcion p{
+  color: #e4e4e4;
+  text-align: justify;
+  padding: 10px;
+}
+
+
+
+.body__derecho2 {
+  width: auto;
+  min-height: auto;
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  color: #fefefe;
+  animation: aparecer both;
+  animation-timeline: view();
+  animation-range: cover 10% contain 40%;
+}
+
+.body__derecho2 details{
+  margin-bottom: 8px;
+  border-radius: 10px;
+  border: 2px solid rgb(4, 35, 65); /*tamaño borde - style - color*/
+  background-color: rgba(0, 0, 0, 1);
+  padding: 5px 0px 5px 0px;
+}
+
+.body__derecho2 summary {
+  color: #ebe8e8;
+  font-size: 20px;
+  padding: 10px;
+  text-align:justify;
+}
+
+.body__derecho2 p {
+  color: #fefefe;
+  text-align: justify;
+  padding: 0px 40px;
+}
+
+.body__derecho2 ul{
+  padding-left: 35px;
+  color: #ffffff; /* Azul intenso */
+  text-align: justify;
+}
+
+
+/*-----------------------------------------------FIN  MAIN-----------------------------------*/
+
+/*----------------------------------------FOOTER---------------------------------------------*/
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  font-size: 15px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+}
+/*------------------------------------FIN FOOTER---------------------------------------------*/
+
+
+/*------------------------------------ANIMACIONES-----------------------------------------*/
+
+
+/*---------------------------------FIN ANIMACIONES-----------------------------------------*/
+
+
+/*--------------------------------------MEDIA QUERIES------------------------------------------*/
+
+@media screen and (min-width: 400px) {
+  header {
+    animation: header-movement both;
+    animation: timeline scroll();
+    top: 0;
+    animation-range:10px 100px ;
+  }
+}
+
+@media (max-width: 600px) {
+  .boddy__izquierdo--galeria {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .grid-item {
+    height: 180px; /* más chico para que no quede demasiado largo */
+  }
+}
+
+/*--------------------------------------FIN MEDIA QUERIES----------------------------------*/
+
+
+/*------------------------------------KEYFRAMEs ANIMATION-----------------------------*/
+@keyframes aparecer{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*----------------------------------FIN KEYFRAMEs ANIMATION-----------------------------*/

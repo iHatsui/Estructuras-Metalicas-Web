@@ -1,0 +1,254 @@
+*{
+  margin: 0; /* separa la distancia que hay entre elementos*/
+  padding: 0; /* espacio entre el contenido interno y el borde de la caja que lo rodea*/
+  box-sizing: border-box; /*El tamaño total de la caja incluye el padding y el border*/
+  font-family:"Montserrat", sans-serif, Arial; /* Tipos de Letra*/
+}
+
+/*El cuerpo de la pagina*/
+body {
+  background: url("/Imagenes/Body/FondoArticulos.png") center center / cover no-repeat fixed;
+  box-sizing: border-box; /*El tamaño total de la caja incluye el padding y el border*/
+  line-height: 1.5; /*Altura que habra entre cada linea de texto*/
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.mainbody, header, footer {
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+/*-----------------------------------------------HEADER----------------------------------------------*/
+/*_____________BARRA DE CONTACTO_________*/
+
+.contact-bar {
+  color: #ffffff;
+  width: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 5px 5px; /*Distancia entre los bordes de la caja y la pagina*/
+  box-sizing: border-box;
+}
+
+.contact-bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; /*El contenido inicia al inicio del contenedor*/
+  list-style: none; /*quita el estilo de las listas*/
+}
+
+.contact-bar ul>li {
+  background-color: rgba(0, 0, 0, 0.3); /*Color del fondo*/
+  font-size: 15px; /*tamaño de letra*/
+  padding: 10px 10px 10px 10px; /*distancia entre el contenido y la caja*/
+  margin: 5px 5px; /*La distancia entre cada descripcion de contacto*/
+  border-radius: 10px; /*borde de esquina*/
+}
+
+.contact-bar ul>li::before {
+  content: ""; /* Siempre necesario para pseudo-elementos */
+  display: inline-block; /* Para que podamos darle tamaño */
+  width: 17px; /* Ancho de tu icono */
+  height: 16px; /* Alto de tu icono */
+  margin: 0px 5px -2px 0;
+  background-size: contain; /* Ajusta el tamaño de la imagen para que quepa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.contact-bar ul>li:nth-child(1)::before {
+  background-image: url("/Imagenes/Iconos/llamada-icon.png"); /* Ruta a tu icono de llamada */
+}
+
+/* Icono para el correo (segundo <li>) */
+.contact-bar ul>li:nth-child(2)::before {
+  background-image: url('/Imagenes/Iconos/correo-icon.png'); /* Ruta a tu icono de correo */
+}
+
+/* Icono para el horario (tercer <li>) */
+.contact-bar ul>li:nth-child(3)::before {
+  background-image: url('/Imagenes/Iconos/reloj-icon.png'); /* Ruta a tu icono de reloj */
+}
+
+/*--------Linea de navegacion mas logo*----------*/
+
+.navegacion {
+  box-sizing: border-box;
+  display: flex;
+  justify-content:center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+/*_____LOGO______*/
+.navegacion__logo {
+  margin: 0 auto;
+}
+
+.navegacion__logo,
+.navegacion__busqueda,
+.navegacion__menu {
+    padding: 10px 20px;
+}
+
+.navegacion__logo img{
+  width: 120px;
+  height: 120px; /*  Esto es clave */
+  filter: drop-shadow(0 0 10px #34bade); /*Sombra solo para imagenes png*/
+  flex-shrink:0;
+}
+
+
+/*__________Navegacion Busqueda______*/
+
+.navegacion__busqueda {
+    margin-top: 20px;
+    justify-content: center;
+  flex-grow: 1;
+}
+
+.navegacion__busqueda--cuadro {
+  position: relative;
+  box-sizing: border-box;
+  padding:10px 10px;
+  max-width:1150px;        /* ancho relativo a la pantalla */
+  margin: 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  border-radius: 20px;
+}
+
+.navegacion__busqueda--cuadro form {
+  margin: auto;
+   flex-grow: 1;
+   display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  width: 100%;
+}
+
+#cuadrobusqueda {
+  color: #ffffff;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(142, 138, 134);/*tamaño borde - style - color*/
+  background-color: rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+}
+
+#cuadrobusqueda:focus-visible {
+  outline: none;
+}
+
+#cuadrobusqueda:hover {
+  background-color: #313335;
+}
+
+#botonbuscar {
+  color: #fffffa;
+  background-color: #313335;
+  padding: 15px;
+  margin: 5px 0px 10px 10px;
+  border-radius: 20px;
+  border: none;
+  flex-shrink: 0;
+}
+
+/*__________Navegacion Menu__________*/
+.navegacion__menu{
+  box-sizing: border-box;
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+nav { 
+  position: relative;
+  box-sizing: border-box; /*Tamaño total de la caja*/
+  padding: 0 0;
+  background:linear-gradient(rgb(1, 66, 116), rgb(70, 23, 0), rgba(51, 39, 0, 0.6));
+  font-size: 32px; /* Tamaño de letra */
+  display:flex; /*caja flexible*/
+  letter-spacing:1px; /* Espacio entre letras */
+  border-radius: 20px; /*El tamaño de la curva que tendra las esquinas de la caja*/
+  justify-content: end;
+}
+
+.menu__horizontal {   /*Lista Horizontal  como inicio - servicios, etc*/
+  list-style: none; /*elimina el estilo predeterminado de las listas*/
+  display: flex;
+  justify-content: space-evenly; /*division de espacio de contenido - equitativo*/
+  flex-direction: row; /*Direccion izquierda a derecha*/
+  flex-wrap: wrap;
+}
+
+.menu__horizontal>li>a {
+  text-decoration: none;
+  display: block;
+  padding: 15px 18px;
+  color: white;
+  text-shadow: 0 0 10px #001aff;
+  font-weight: 730;
+  
+}
+
+.menu__horizontal>li:hover {
+  background:linear-gradient(rgba(1, 47, 116, 0.9),black , transparent); /*Fondo degradado*/
+  border-radius: 20px;
+  position: relative;
+  bottom:5px;
+  left: 2px;
+  box-shadow: -5px 2px 5px #512010;
+  outline: 1px solid #dc400734; /*es similar a border pero no usa espacio en la pagina*/
+}
+
+.menu__horizontal>li:hover .menu__vertical {
+  display: block;
+}
+
+.menu__vertical {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 230px;
+  background:linear-gradient(rgb(1, 46, 78), rgba(52, 2, 21, 0.264), rgb(63, 45, 4)); /*Fondo degradado*/
+  background-color: rgba(0, 0, 0, 0.9); /*fondo de la caja*/
+  border-radius: 20px; /*borde de las esquinas*/
+  text-shadow: 0 0 10px #0f6c20 ;
+}
+
+
+.menu__vertical li:hover {
+  background:linear-gradient(rgba(21, 67, 137, 0.9) , transparent); /*Fondo degradado*/ 
+  border-radius: 20px; /*borde de las esquinas*/
+  position: relative;
+  bottom:10px;
+  box-shadow: 0px 5px 5px #512010;
+  outline: 1px solid #dc400734;
+}
+
+.menu__vertical li a {
+  text-decoration: none;
+  padding: 15px 15px 15px 15px;/*distancia pading en orden arriba-derecha-abajo-izquierda*/
+  display: block;
+  color: #ffffff; /*Color en Hexadecimal*/
+}
+/*-----------------------------------------------FIN  HEADER-----------------------------------*/
+
+
+/* ------------------------------------ PIE DE PÁGINA-------------------- */
+footer {
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+}
